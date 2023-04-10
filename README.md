@@ -1,5 +1,5 @@
 ## Really Great Song
-* It is a web app. Where the user search for lyrics of christian song.*
+* It is a web app. Where the user search for lyrics of christian song.
 * Search and browse lyrics: Users can search for lyrics by song ID, song title, artist, or category. They can also browse a list of all available lyrics.
 * View lyrics: Users can view the full lyrics of a selected song.
 * User registration and login: Users can create accounts and log in. 
