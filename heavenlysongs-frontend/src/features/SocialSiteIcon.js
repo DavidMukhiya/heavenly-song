@@ -4,7 +4,7 @@ import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 const SocialSiteIcon = () => {
   return (
     <div
-      className="social-site-icon-style justify-content-center mt-3 mb-3 d-flex"
+      className="social-site-icon-style justify-content-center mt-4 mb-4 d-flex"
       style={{ width: "100%", justifyContent: "center" }}
     >
       <a
