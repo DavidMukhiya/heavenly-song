@@ -4,12 +4,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "lrics")
 @Getter
 @Setter
 @NoArgsConstructor
 public class Lyric {
-    private int lyric_ID;
+    private int lyricID;
     private String songTitle;
+    private String songNo;
     private String singer;
     private String scale;
     private String lyric;
