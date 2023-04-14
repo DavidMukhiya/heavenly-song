@@ -1,6 +1,7 @@
 package com.david.heavenlysong.controllers;
 
 import com.david.heavenlysong.entities.User;
+import com.david.heavenlysong.payloads.ApiResponse;
 import com.david.heavenlysong.payloads.UserDto;
 import com.david.heavenlysong.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +47,9 @@ public class UserController {
 
     //DELETE - delete user
     @DeleteMapping("/{userId}")
-    public String deleteUser(@PathVariable Integer userId){
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable Integer userId){
         this.userService.deleteUser(userId);
-        return "User with id: "+userId+" is deleted.";
+        return new ResponseEntity<>(new ApiResponse("User with id:"+userId+ " is deleted.",true), HttpStatus.OK) ;
     }
 
 }
