@@ -66,7 +66,7 @@ public class LyricServiceImpl implements LyricService {
 
     @Override
     public List<LyricDto> getLyricsByCategory(Integer categoryId) {
-        Category category = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Categroy", "Id", categoryId));
+        Category category = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category", "Id", categoryId));
         List<Lyric> LyricsByCategory = this.lyricRepo.findByCategory(category);
         List<LyricDto> lyricsDtoByCategory = LyricsByCategory.stream().map(lyric -> this.modelMapper.map(lyric, LyricDto.class)).collect(Collectors.toList());
         return lyricsDtoByCategory;
