@@ -21,4 +21,6 @@ public interface LyricService {
 
     //get all lyric by category
     List<LyricDto> getLyricsByCategory(Integer categoryId);
+
+    List<LyricDto> getLyricsByUser(Integer userId);
 }

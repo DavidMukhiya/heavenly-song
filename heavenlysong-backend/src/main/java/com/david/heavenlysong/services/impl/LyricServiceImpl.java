@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LyricServiceImpl implements LyricService {
@@ -65,6 +66,17 @@ public class LyricServiceImpl implements LyricService {
 
     @Override
     public List<LyricDto> getLyricsByCategory(Integer categoryId) {
-        return null;
+        Category category = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Categroy", "Id", categoryId));
+        List<Lyric> LyricsByCategory = this.lyricRepo.findByCategory(category);
+        List<LyricDto> lyricsDtoByCategory = LyricsByCategory.stream().map(lyric -> this.modelMapper.map(lyric, LyricDto.class)).collect(Collectors.toList());
+        return lyricsDtoByCategory;
+    }
+
+    @Override
+    public List<LyricDto> getLyricsByUser(Integer userId) {
+        User user = this.userRepo.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        List<Lyric> LyricsByUser = this.lyricRepo.findByUser(user);
+        List<LyricDto> lyricDtoByUser = LyricsByUser.stream().map(lyric -> this.modelMapper.map(lyric, LyricDto.class)).collect(Collectors.toList());
+        return lyricDtoByUser;
     }
 }
